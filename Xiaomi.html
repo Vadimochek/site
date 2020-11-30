@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Xiaomi</title>
+<link rel="icon" href="logo.png" type="image/png" >
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap');
+	body{
+background-image: url(fon4.png); 
+}
+	#FIND {
+  background-position: 10px 12px; 
+  background-repeat: no-repeat; 
+  width: 40%; 
+  font-size: 17px; 
+  padding: 12px 20px 12px 40px;
+  border: 1px solid gray; 
+  margin-bottom: 12px; 
+  margin-left: 10px;
+}
+
+#Spreed {
+  border-collapse: collapse; 
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px; 
+  margin: 2%; 
+}
+
+#Spreed th, #Spreed td {
+  text-align: left; 
+  padding: 12px; 
+  text-align:center;
+}
+
+#Spreed tr {
+  border-bottom: 1px solid #ddd;
+  text-align:center;
+}
+.footer { 
+    left: 0; bottom: 0;
+    padding: 10px; 
+    background: rgba(0,0,0,0);
+    width: 100%; 
+   }
+#Spreed tr.header, #Spreed tr:hover {
+  background-color: #f1f1f1;
+
+}
+.modal {
+  display: none;
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  padding-top: 100px;
+  width: 100%;   height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 85%; 
+  height: 62%;
+   border: 2px solid #ff6e00;
+}
+
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+h2{
+	font-size: 30px;
+  font-family: 'Open Sans', sans-serif;
+}
+h1{
+  font-family: 'Open Sans', sans-serif;
+}
+td{
+	font-size: 25px;
+  font-family: 'Open Sans', sans-serif;
+}
+.def {
+  border-color: black;
+  color: black;
+   padding: 10px 20px;
+   font-size: 18px;
+}
+
+.def:hover {
+  background: #e7e7e7;
+}
+body{
+  max-width: 95%;
+}
+img{
+  border-radius: 2%;
+  border: 1px solid black;
+}
+</style>
+<script type="text/javascript">
+
+function myFunction() {
+  // Объявить переменные	
+  input = document.getElementById("FIND");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("Spreed");
+  tr = table.getElementsByTagName("tr");
+
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+function sortingyear() {
+i=1;
+  tab = document.getElementById("Spreed");
+ flag = true;
+  while (flag) {
+    flag = false;
+    rows = tab.rows;
+    for (i = 1; i < (rows.length - 1); i++) {
+      shouldflag = false;
+      id1 = rows[i].getElementsByTagName("TD")[1];
+      id2 = rows[i + 1].getElementsByTagName("TD")[1];
+      if (Number(id1.innerHTML) > Number(id2.innerHTML)) {
+              shouldflag = true;
+        break;
+      }	
+  }
+    if (shouldflag) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      flag = true;
+    }
+  }
+}
+</script>
+</head>
+<body>
+	<script>
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+  <div style="float: right;">
+    <a href="Курсач.html"><p style="color: red ">Обратно</p>
+    </a>
+  </div>
+	<div style="text-align: center;">
+		<h1 style="color: #ff6e00;">Самокаты Xiaomi</h1>
+	</div>
+<div style="clear: both; text-align: center;"><input type="text" id="FIND" onkeyup="myFunction()" placeholder="Поиск по названию...">
+<button onclick="sortingyear()" class="def">Сортировка по году выпуска</button>
+</div>
+<table id="Spreed">
+  <tr class="header">
+    <th style="width: 40%">Внешний вид</th>
+    <th style="width: 10%">Год выпуска</th>
+    <th style="width: 50% ">Название </th>
+  </tr>
+  <tr onclick=" modal = document.getElementById('Modal1'); modal.style.display = 'block';">
+    <td>
+	<img src="1.3x.png" style="width: 50%"></td>
+	<td>2016</td>
+    <td>Xiaomi Mijia Electric Scooter M187</td>
+  </tr>
+  <tr onclick=" modal = document.getElementById('Modal2'); modal.style.display = 'block';">
+    <td> <img src="1x.jpg" style="width: 50%"></td>
+    <td>2020</td>
+    <td> Xiaomi Mi Electric Scooter Essential</td>
+  </tr>
+  <tr onclick=" modal = document.getElementById('Modal3'); modal.style.display = 'block';">
+    <td><img src="3.0x.png" style="width: 50%"></td>
+    <td>2016</td>
+    <td>Xiaomi Mijia M365</td>
+  </tr>
+  <tr onclick=" modal = document.getElementById('Modal4'); modal.style.display = 'block';">
+    <td><img src="1.png" style="width: 50%"></td>
+    <td>2020</td>
+    <td>Xiaomi 1S</td>
+  </tr>
+   <tr onclick=" modal = document.getElementById('Modal5'); modal.style.display = 'block';">
+    <td><img src="5.0.png" style="width: 50%"></td>
+    <td>2020</td>
+    <td>Xiaomi Mijia M365 Pro</td>
+  </tr>
+</table> 
+
+<div id="Modal1" class="modal">
+  <div class="modal-content">
+  	<div style="float: left; width: 28%">
+    <img src="1.1x.png" style="width: 57%">
+    <img src="1.22x.png" style="width: 62%">
+	</div>
+	<div style="float: left; width: 40%">
+    <img src="1.3x.png" style="width: 80%"></div>
+	<div style="">
+    <h2>Xiaomi Mijia Electric Scooter M187</h2>
+    <p style="font-size: 25px;">Мощность: 250 Ватт / 36 В</br>
+	Аккумулятор: 5200 мАч Li-ion</br>
+	Maксимальная скорость: 25 км/ч</br>
+	Максимальная нагрузка: 100 кг</br>
+	Вес: 12,5 кг</br>
+	Габариты: 1080*430*1140 мм </p></br>
+	<h2 >Cтоимость: <i>~23 000</i> рублей</h2>
+</div>
+  </div>
+</div>
+<div id="Modal2" class="modal">
+  <div class="modal-content" >
+  	<div style="float: left; width: 28%">
+    <img src="1x.jpg" style="width: 57%">
+    <img src="2x2.jpg" style="width: 62%">
+	</div>
+	<div style="float: left; width: 40%">
+    <img src="3x.jpg" style="width: 70%"></div>
+	<div style="">
+    <h2>Xiaomi Mi Electric Scooter Essential</h2>
+    <p style="font-size: 25px;">Мощность: 250 Ватт / 36 В</br>
+	Аккумулятор: 5100 мАч Li-ion</br>
+	Maксимальная скорость: 20 км/ч</br>
+	Максимальная нагрузка: 100 кг</br>
+	Вес: 12 кг</br>
+	Габариты: 1080*430*1140 мм </p></br>
+	<h2 >Cтоимость: <i>~24 000</i> рублей</h2>
+</div>
+</div>
+</div>
+<div id="Modal3" class="modal">
+  <div class="modal-content" >
+  	<div style="float: left; width: 28%">
+    <img src="3.1x.png" style="width: 70%">
+    <img src="2.22.png" style="width: 90%">
+	</div>
+	<div style="float: left; width: 40%">
+    <img src="3.0x.png" style="width: 85%"></div>
+	<div style="">
+    <h2>Xiaomi Mijia M365</h2>
+    <p style="font-size: 25px;">Мощность: 250 Ватт / 36 В</br>
+	Аккумулятор: 7800 мАч Li-ion</br>
+	Maксимальная скорость: 25 км/ч</br>
+	Максимальная нагрузка: 110 кг</br>
+	Вес: 12,5 кг</br>
+	Габариты: 1080*430*1140 мм </p></br>
+	<h2 >Cтоимость: <i>~27 000</i> рублей</h2>
+</div>
+</div>
+</div>
+<div id="Modal4" class="modal">
+  <div class="modal-content" >
+  	<div style="float: left; width: 28%">
+    <img src="1.png" style="width: 70%;">
+    <img src="4.2.png" style="width: 90%">
+	</div>
+	<div style="float: left; width: 40%">
+    <img src="4.1x.png" style="width: 85%"></div>
+	<div style="">
+    <h2>Xiaomi 1S</h2>
+    <p style="font-size: 25px;">Мощность: 250 Ватт / 36 В</br>
+	Аккумулятор: 7650 мАч Li-ion</br>
+	Maксимальная скорость: 25 км/ч</br>
+	Максимальная нагрузка: 100 кг</br>
+	Вес: 12,5 кг</br>
+	Габариты: 1080*430*1140 мм </p></br>
+	<h2 >Cтоимость: <i>~30 000</i> рублей</h2>
+</div>
+</div>
+</div>
+<div id="Modal5" class="modal">
+  <div class="modal-content" >
+  	<div style="float: left; width: 28%">
+    <img src="5.1.png" style="width: 60%;">
+    <img src="5.2.png" style="width: 70%">
+	</div>
+	<div style="float: left; width: 40%">
+    <img src="5.0.png" style="width: 85%"></div>
+	<div style="">
+    <h2>Xiaomi Mijia M365 Pro</h2>
+    <p style="font-size: 25px;">Мощность: 300 Ватт / 42 В</br>
+	Аккумулятор: 12800 мАч Li-ion</br>
+	Maксимальная скорость: 24 км/ч</br>
+	Максимальная нагрузка: 110 кг</br>
+	Вес: 12,5 кг</br>
+	Габариты: 1080*430*1140 мм </p></br>
+	<h2 >Cтоимость: <i>~40 000</i> рублей</h2>
+</div>
+</div>
+</div>
+  <div class="footer" style="text-align: center;">
+   &copy; Колесников Вадим. Все изображения взяты из ресурса Интернет.
+  </div>
+</body>
+</html>	
