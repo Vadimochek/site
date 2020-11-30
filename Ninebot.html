@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ninebot</title>
+<link rel="icon" href="logo.png" type="image/png" >
+<style media ="all">
+     @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap');
+	body{
+background-image: url(fon4.png); 
+}
+	#FIND {
+  background-position: 10px 12px; 
+  background-repeat: no-repeat; 
+  width: 40%; 
+  font-size: 17px; 
+  padding: 12px 20px 12px 40px;
+  border: 1px solid gray; 
+  margin-bottom: 12px; 
+  margin-left: 10px;
+}
+
+#Spreed {
+  border-collapse: collapse; 
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px; 
+    margin: 2%;
+}
+
+#Spreed th, #Spreed td {
+  text-align: left; 
+  padding: 12px; 
+text-align: center;
+}
+
+#Spreed tr {
+  border-bottom: 1px solid #ddd;
+text-align: center;
+}
+.footer { 
+    left: 0; bottom: 0;
+    padding: 10px; 
+    background: rgba(0,0,0,0);
+    width: 100%; 
+   }
+#Spreed tr.header, #Spreed tr:hover {
+  background-color: #f1f1f1;
+
+}
+.modal {
+  display: none;
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  padding-top: 100px;
+  width: 100%;   height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 85%; 
+  height: 62%;
+   border: 2px solid #2F4F4F;
+}
+
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+h2{
+	font-size: 30px;
+font-family: 'Open Sans', sans-serif;
+}
+h1{
+  font-family: 'Open Sans', sans-serif;
+}
+td{
+  font-size: 25px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body{
+  max-width: 95%;
+}
+img{
+  border-radius: 2%;
+  border: 1px solid black;
+}
+.def {
+  border-color: black;
+  color: black;
+   padding: 10px 20px;
+   font-size: 18px;
+}
+
+.def:hover {
+  background: #e7e7e7;
+}
+</style>
+<script type="text/javascript">
+
+function myFunction() {
+  // Объявить переменные	
+  input = document.getElementById("FIND");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("Spreed");
+  tr = table.getElementsByTagName("tr");
+
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+function sortingyear() {
+i=1;
+  tab = document.getElementById("Spreed");
+ flag = true;
+  while (flag) {
+    flag = false;
+    rows = tab.rows;
+    for (i = 1; i < (rows.length - 1); i++) {
+      shouldflag = false;
+      id1 = rows[i].getElementsByTagName("TD")[1];
+      id2 = rows[i + 1].getElementsByTagName("TD")[1];
+      if (Number(id1.innerHTML) > Number(id2.innerHTML)) {
+              shouldflag = true;
+        break;
+      }	
+  }
+    if (shouldflag) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      flag = true;
+    }
+  }
+}
+</script>
+</head>
+<body>
+	<script>
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+<div style="float:right;">
+    <a href="Курсач.html"><p style="color: red">Обратно</p></a></div>
+	<div style="text-align: center;">
+		<h1 style="color: #2F4F4F">Самокаты Ninebot</h1>
+	</div>
+<div style="clear: both; text-align: center;"><input type="text" id="FIND" onkeyup="myFunction()" placeholder="Поиск по названию...">
+<button onclick="sortingyear()" class="def">Сортировка по году выпуска</button>
+</div>
+<table id="Spreed">
+  <tr class="header">
+    <th style="width: 40%">Внешний вид</th>
+    <th style="width: 10%">Год выпуска</th>
+    <th style="width: 50% ">Название </th>
+  </tr>
+  <tr onclick=" modal = document.getElementById('Modal1'); modal.style.display = 'block';">
+    <td>
+	<img src="nb1.0.png" style="width: 50%"></td>
+	<td>2017</td>
+    <td>Ninebot KickScooter ES1</td>
+  </tr>
+  <tr onclick=" modal = document.getElementById('Modal2'); modal.style.display = 'block';">
+    <td> <img src="nb2.1.png" style="width: 50%"></td>
+    <td>2017</td>
+    <td>Ninebot KickScooter ES2</td>
+  </tr>
+  <tr onclick=" modal = document.getElementById('Modal3'); modal.style.display = 'block';">
+    <td><img src="nb3.0.png" style="width: 50%"></td>
+    <td>2018</td>
+    <td>Ninebot KickScooter ES4</td>
+  </tr>
+  <tr onclick=" modal = document.getElementById('Modal4'); modal.style.display = 'block';">
+    <td><img src="nb4.0.png" style="width: 50%"></td>
+    <td>2019</td>
+    <td>Ninebot KickScooter Max</td>
+  </tr>
+   <tr onclick=" modal = document.getElementById('Modal5'); modal.style.display = 'block';">
+    <td><img src="nb5.1.png" style="width: 50%"></td>
+    <td>2020</td>
+    <td>Ninebot E22</td>
+  </tr>
+     <tr onclick=" modal = document.getElementById('Modal6'); modal.style.display = 'block';">
+    <td><img src="nb6.0.png" style="width: 50%"></td>
+    <td>2020</td>
+    <td>Ninebot eKickScooter Zing E10 (Детский)</td>
+  </tr>
+     <tr onclick=" modal = document.getElementById('Modal7'); modal.style.display = 'block';">
+    <td><img src="nb7.0.png" style="width: 50%"></td>
+    <td>2020</td>
+    <td>Ninebot eKickScooter Zing E8 (Детский)</td>
+  </tr>
+     <tr onclick=" modal = document.getElementById('Modal8'); modal.style.display = 'block';">
+    <td><img src="nb8.1.png" style="width: 50%"></td>
+    <td>2020</td>
+    <td>Ninebot Air T15</td>
+  </tr>
+</table>
+
+
+<div id="Modal1" class="modal">
+  <div class="modal-content">
+  	<div style="float: left; width: 28%">
+    <img src="nb1.2.png" style="width: 57%">
+    <img src="nb1.0.png" style="width: 62%">
+	</div>
+	<div style="float: left; width: 40%">
+    <img src="nb1.1.png" style="width: 70%"></div>
+	<div style="">
+    <h2>Ninebot KickScooter ES1</h2>
+    <p style="font-size: 25px;">Мощность: 250 Ватт / 36 В</br>
+	Аккумулятор: 5200 мАч Li-ion</br>
+	Maксимальная скорость: 20 км/ч</br>
+	Максимальная нагрузка: 100 кг</br>
+	Вес: 11,3 кг</br>
+	Габариты: 1020*430*1130 мм </p></br>
+	<h2 >Cтоимость: <i>~25 000</i> рублей</h2>
+</div>
+  </div>
+</div>
+<div id="Modal2" class="modal">
+<div class="modal-content" >
+<div style="float: left; width: 28%">
+<img src="nb2.3.png" style="width: 50%">
+<img src="nb2.2.png" style="width: 50%">
+</div>
+<div style="float: left; width: 40%">
+<img src="nb2.1.png" style="width: 90%"></div>
+<div style="">
+<h2>Ninebot KickScooter ES2 </h2>
+<p style="font-size: 25px;">Мощность: 300 Ватт / 36 В</br>
+Аккумулятор: 5200 мАч Li-ion</br>
+Maксимальная скорость: 25 км/ч</br>
+Максимальная нагрузка: 100 кг</br>
+Вес: 12,5 кг</br>
+Габариты: 1020*430*1130 мм </p></br>
+<h2 >Cтоимость: <i>~25 000</i> рублей</h2>
+</div>
+</div>
+</div>
+<div id="Modal3" class="modal">
+<div class="modal-content" >
+	<div style="float: left; width: 28%">
+  <img src="nb3.1.png" style="width: 55%">
+  <img src="nb3.2.png" style="width: 55%">
+</div>
+<div style="float: left; width: 40%">
+  <img src="nb3.0.png" style="width: 85%"></div>
+<div style="">
+  <h2>Ninebot KickScooter ES4</h2>
+  <p style="font-size: 25px;">Мощность: 300 Ватт / 52 В</br>
+Аккумулятор: 16000 мАч Li-ion</br>
+Maксимальная скорость: 30 км/ч</br>
+Максимальная нагрузка: 100 кг</br>
+Вес: 14 кг</br>
+Габариты: 1020*430*1130 мм </p></br>
+<h2 >Cтоимость: <i>~32 000</i> рублей</h2>
+</div>
+</div>
+</div>
+<div id="Modal4" class="modal">
+  <div class="modal-content" >
+  	<div style="float: left; width: 28%">
+    <img src="nb4.1.png" style="width: 60%;">
+    <img src="nb4.2.png" style="width: 55%">
+	</div>
+	<div style="float: left; width: 40%">
+    <img src="nb4.0.png" style="width: 85%"></div>
+	<div style="">
+    <h2>Ninebot KickScooter Max</h2>
+    <p style="font-size: 25px;">Мощность: 350 Ватт / 42 В</br>
+	Аккумулятор: 15000 мАч Li-ion</br>
+	Maксимальная скорость: 25 км/ч</br>
+	Максимальная нагрузка: 100 кг</br>
+	Вес: 18,7 кг</br>
+	Габариты: 1170*420*1200 мм </p></br>
+	<h2 >Cтоимость: <i>~48 000</i> рублей</h2>
+</div>
+</div>
+</div>  
+<div id="Modal5" class="modal">
+<div class="modal-content" >
+	<div style="float: left; width: 28%">
+  <img src="nb5.1.png" style="width: 85%;">
+  <img src="nb5.2.png" style="width: 100%">
+</div>
+<div style="float: left; width: 40%">
+  <img src="nb5.0.png" style="width: 85%"></div>
+<div style="">
+  <h2>Ninebot E22</h2>
+  <p style="font-size: 25px;">Мощность: 300 Ватт / 36 В</br>
+Аккумулятор: 5200 мАч Li-ion</br>
+Maксимальная скорость: 20 км/ч</br>
+Максимальная нагрузка: 100 кг</br>
+Вес: 13,2 кг</br>
+Габариты: 1090*420*1120 мм </p></br>
+<h2 >Cтоимость: <i>~26 000</i> рублей</h2>
+</div>
+</div>
+</div>
+<div id="Modal6" class="modal">
+<div class="modal-content" >
+  <div style="float: left; width: 28%">
+  <img src="nb6.1.png" style="width: 60%;">
+  <img src="nb6.2.png" style="width: 50%">
+</div>
+<div style="float: left; width: 40%">
+  <img src="nb6.0.png" style="width: 85%"></div>
+<div style="">
+  <h2>Ninebot eKickScooter Zing E10 (Детский)</h2>
+  <p style="font-size: 25px;">Мощность: 300 Ватт / 36 В</br>
+Аккумулятор: 2550 мАч Li-ion</br>
+Maксимальная скорость: 16 км/ч</br>
+Максимальная нагрузка: 60 кг</br>
+Вес: 8,4 кг</br>
+Габариты: 920*400*950 мм </p></br>
+<h2 >Cтоимость: <i>~18 000</i> рублей</h2>
+</div>
+</div>
+</div>
+<div id="Modal7" class="modal">
+<div class="modal-content" >
+  <div style="float: left; width: 28%">
+  <img src="nb7.1.png" style="width: 70%;">
+  <img src="nb7.2.png" style="width: 60%">
+</div>
+<div style="float: left; width: 40%">
+  <img src="nb7.0.png" style="width: 95%"></div>
+<div style="">
+  <h2>Ninebot eKickScooter Zing E8 (Детский)</h2>
+  <p style="font-size: 25px;">Мощность: 260 Ватт / 21,6 В</br>
+Аккумулятор: 2550 мАч Li-ion</br>
+Maксимальная скорость: 14 км/ч</br>
+Максимальная нагрузка: 50 кг</br>
+Вес: 7,9 кг</br>
+Габариты: 820*335*850 мм </p></br>
+<h2 >Cтоимость: <i>~18 000</i> рублей</h2>
+</div>
+</div>
+</div>
+<div id="Modal8" class="modal">
+<div class="modal-content" >
+  <div style="float: left; width: 28%">
+  <img src="nb8.0.png" style="width: 70%;">
+  <img src="nb8.2.png" style="width: 60%">
+</div>
+<div style="float: left; width: 40%">
+  <img src="nb8.1.png" style="width: 75%"></div>
+<div style="">
+  <h2>Ninebot Air T15</h2>
+  <p style="font-size: 25px;">Мощность: 300 Ватт / 36 В</br>
+Аккумулятор: 4000 мАч Li-ion</br>
+Maксимальная скорость: 20 км/ч</br>
+Максимальная нагрузка: 100 кг</br>
+Вес: 10,5 кг</br>
+Габариты: 1020*400*940 мм </p></br>
+<h2 >Cтоимость: <i>~40 000</i> рублей</h2>
+</div>
+</div>
+</div>
+  <div class="footer" style="text-align: center;">
+   &copy; Колесников Вадим. Все изображения взяты из ресурса Интернет.
+  </div>
+</body>
+</html>	
